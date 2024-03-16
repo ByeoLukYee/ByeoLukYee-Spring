@@ -11,20 +11,20 @@ import lombok.*;
 public class User extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    Long id;
+    private Long id;
 
     @Column(nullable = false)
-    String name;
+    private String name;
 
     @Column(unique = true, nullable = false)
-    String email;
+    private String email;
 
     @Column(nullable = false)
-    String password;
+    private String password;
 
     @Column(nullable = false)
-    String schoolName;  // 학교 이름
+    private String schoolName;  // 학교 이름
 
     @Column(nullable = false)
-    String studentId;   // 학번
+    private String studentId;   // 학번
 }
