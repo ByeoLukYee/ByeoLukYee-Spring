@@ -1,5 +1,6 @@
 package com.mirim.byeolukyee.exception.handler;
 
+import com.mirim.byeolukyee.exception.DuplicateEmailException;
 import com.mirim.byeolukyee.exception.UserNotFoundException;
 import com.mirim.byeolukyee.exception.error.ErrorCode;
 import com.mirim.byeolukyee.exception.error.ErrorResponse;
@@ -17,5 +18,11 @@ public class GlobalExceptionHandler {
     public ResponseEntity<ErrorResponse> handleUserNotFoundException(UserNotFoundException e) {
         return ResponseEntity.status(e.getErrorCode().getHttpStatus())
                 .body(ErrorResponse.of(ErrorCode.USER_NOT_FOUND));
+    }
+
+    @ExceptionHandler
+    public ResponseEntity<ErrorResponse> handleDuplicateEmail(DuplicateEmailException e) {
+        return ResponseEntity.status(e.getErrorCode().getHttpStatus())
+                .body(ErrorResponse.of(ErrorCode.DUPLICATE_EMAIL));
     }
 }
