@@ -1,7 +1,7 @@
-package entity;
+package com.mirim.byeolukyee.entity;
 
-import constant.ItemStatus;
-import constant.ItemType;
+import com.mirim.byeolukyee.constant.ItemStatus;
+import com.mirim.byeolukyee.constant.ItemType;
 import jakarta.persistence.*;
 import lombok.*;
 
