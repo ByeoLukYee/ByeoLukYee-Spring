@@ -1,7 +1,7 @@
-package entity;
+package com.mirim.byeolukyee.entity;
 
-import constant.ItemStatus;
-import constant.ItemType;
+import com.mirim.byeolukyee.constant.ItemStatus;
+import com.mirim.byeolukyee.constant.ItemType;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -12,7 +12,7 @@ import lombok.*;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Item extends BaseEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne(targetEntity = User.class, fetch = FetchType.LAZY)

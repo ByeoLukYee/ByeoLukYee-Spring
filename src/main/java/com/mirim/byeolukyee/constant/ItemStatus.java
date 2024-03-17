@@ -1,4 +1,4 @@
-package constant;
+package com.mirim.byeolukyee.constant;
 
 public enum ItemStatus {
     ON_SALE,
