@@ -1,6 +1,7 @@
 package com.mirim.byeolukyee.controller;
 
 import com.mirim.byeolukyee.dto.user.AddUserRequestDto;
+import com.mirim.byeolukyee.dto.user.SignInUserRequestDto;
 import com.mirim.byeolukyee.dto.user.UserResponseDto;
 import com.mirim.byeolukyee.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -27,5 +28,10 @@ public class UserController {
     @PostMapping
     public UserResponseDto createUser(@RequestBody AddUserRequestDto addUserRequestDto) {
         return userService.createUser(addUserRequestDto);
+    }
+
+    @PostMapping("/signin")
+    public UserResponseDto signInUser(@RequestBody SignInUserRequestDto signInUserRequestDto) {
+        return userService.signIn(signInUserRequestDto);
     }
 }
