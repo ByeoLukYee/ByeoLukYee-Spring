@@ -1,12 +1,15 @@
 package com.mirim.byeolukyee.service;
 
 import com.mirim.byeolukyee.dto.user.AddUserRequestDto;
+import com.mirim.byeolukyee.dto.user.SignInUserRequestDto;
 import com.mirim.byeolukyee.dto.user.UserResponseDto;
 import com.mirim.byeolukyee.entity.User;
 import com.mirim.byeolukyee.exception.DuplicateEmailException;
+import com.mirim.byeolukyee.exception.IncorrectPasswordException;
 import com.mirim.byeolukyee.exception.UserNotFoundException;
 import com.mirim.byeolukyee.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -54,6 +57,21 @@ public class UserService {
 
         // UserResponseDto 생성
         return UserResponseDto.from(savedUser);
+    }
+
+    @Transactional
+    public UserResponseDto signIn(SignInUserRequestDto signInUserRequestDto) {
+        // 이메일로 유저 존재 확인
+        User user = userRepository.findByEmail(signInUserRequestDto.getEmail())
+                .orElseThrow(()-> UserNotFoundException.EXCEPTION);
+
+        // 비밀번호 확인
+        if (BCrypt.checkpw(signInUserRequestDto.getPassword(), user.getPassword()))
+            return UserResponseDto.from(user);
+        else
+            throw IncorrectPasswordException.EXCEPTION;
+
+
     }
 
     private void checkDuplicateEmail(String email) {
