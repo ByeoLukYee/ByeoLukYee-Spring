@@ -11,7 +11,6 @@ import javax.validation.constraints.Pattern;
 
 
 @Getter
-@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class AddUserRequestDto {
@@ -28,6 +27,6 @@ public class AddUserRequestDto {
 
     @NotBlank(message = "학번은 공백일 수 없습니다.")
     private String studentId;
-
-
+    
 }
+
