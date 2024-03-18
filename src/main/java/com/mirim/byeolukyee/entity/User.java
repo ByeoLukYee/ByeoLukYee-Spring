@@ -26,9 +26,6 @@ public class User extends BaseEntity {
     private String password;
 
     @Column(nullable = false)
-    private String schoolName;  // 학교 이름
-
-    @Column(nullable = false)
     private String studentId;   // 학번
 
     @JsonIgnore
