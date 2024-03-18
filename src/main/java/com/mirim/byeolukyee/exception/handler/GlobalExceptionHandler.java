@@ -1,6 +1,7 @@
 package com.mirim.byeolukyee.exception.handler;
 
 import com.mirim.byeolukyee.exception.DuplicateEmailException;
+import com.mirim.byeolukyee.exception.IncorrectPasswordException;
 import com.mirim.byeolukyee.exception.UserNotFoundException;
 import com.mirim.byeolukyee.exception.error.ErrorCode;
 import com.mirim.byeolukyee.exception.error.ErrorResponse;
@@ -21,8 +22,14 @@ public class GlobalExceptionHandler {
     }
 
     @ExceptionHandler
-    public ResponseEntity<ErrorResponse> handleDuplicateEmail(DuplicateEmailException e) {
+    public ResponseEntity<ErrorResponse> handleDuplicateEmailException(DuplicateEmailException e) {
         return ResponseEntity.status(e.getErrorCode().getHttpStatus())
                 .body(ErrorResponse.of(ErrorCode.DUPLICATE_EMAIL));
+    }
+
+    @ExceptionHandler
+    public ResponseEntity<ErrorResponse> handleIncorrectPasswordException(IncorrectPasswordException e) {
+        return ResponseEntity.status(e.getErrorCode().getHttpStatus())
+                .body(ErrorResponse.of(ErrorCode.INCORRECT_PASSWORD));
     }
 }
