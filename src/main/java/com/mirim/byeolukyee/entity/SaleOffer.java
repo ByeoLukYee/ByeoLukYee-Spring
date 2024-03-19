@@ -16,7 +16,7 @@ public class SaleOffer {
     private Long id;
 
     @JsonIgnore
-    @ManyToOne(targetEntity = Item.class, fetch = FetchType.LAZY)
+    @ManyToOne(targetEntity = BuyRequest.class, fetch = FetchType.LAZY)
     @JoinColumn(name = "reference_item_id")
     private Item referenceItem;
 

@@ -19,5 +19,5 @@ public class BuyRequest {
 
     @JsonIgnore
     @OneToMany(mappedBy = "referenceItem")
-    private List<Item> referencingItems;
+    private List<SaleOffer> referencingItems;
 }
