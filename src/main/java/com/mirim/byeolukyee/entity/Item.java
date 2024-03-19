@@ -1,11 +1,12 @@
 package com.mirim.byeolukyee.entity;
 
 import com.mirim.byeolukyee.constant.ItemStatus;
-import com.mirim.byeolukyee.constant.ItemType;
 import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "type", discriminatorType = DiscriminatorType.STRING)
 @Getter
 @Builder
 @AllArgsConstructor
@@ -22,20 +23,17 @@ public class Item extends BaseEntity {
     @Column(nullable = false)
     private String title;
 
-    @Column(nullable = false)
+    @Column(nullable = false, columnDefinition = "TEXT")
     private String description;
 
     @Column(nullable = false)
     private Integer price;
 
+    @Builder.Default
     @Column(nullable = false)
-    private String location = "미정";
+    private String location = "거래 희망 장소가 없습니다.";
 
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
-    private ItemStatus status; // ON_SALE, RESERVED, SOLD_OUT
-
-    @Column(nullable = false)
-    @Enumerated(EnumType.STRING)
-    private ItemType type;  // BUYING, SELLING
+    private ItemStatus status; // PROCEEDING, RESERVED, COMPLETE
 }

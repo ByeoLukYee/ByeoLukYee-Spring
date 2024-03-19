@@ -1,6 +1,7 @@
 package com.mirim.byeolukyee.constant;
 
 public enum ItemType {
-    BUYING,
-    SELLING
+    PRODUCT,
+    BUY_REQUEST,
+    SALE_OFFER
 }
