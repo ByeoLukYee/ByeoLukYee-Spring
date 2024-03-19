@@ -1,7 +1,7 @@
 package com.mirim.byeolukyee.constant;
 
 public enum ItemStatus {
-    ON_SALE,
+    PROCEEDING,
     RESERVED,
-    SOLD_OUT
+    COMPLETE
 }
