@@ -1,7 +1,6 @@
 package com.mirim.byeolukyee.entity;
 
 import com.mirim.byeolukyee.constant.ItemStatus;
-import com.mirim.byeolukyee.constant.ItemType;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -37,8 +36,4 @@ public class Item extends BaseEntity {
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private ItemStatus status; // PROCEEDING, RESERVED, COMPLETE
-
-    @Column(nullable = false)
-    @Enumerated(EnumType.STRING)
-    private ItemType type;  // PRODUCT, BUY_REQUEST, SALE_OFFER
 }
