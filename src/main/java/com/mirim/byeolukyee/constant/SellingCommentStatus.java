@@ -5,11 +5,9 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public enum ProductStatus {
-    IN_PROGRESS("판매중"),
-    RESERVED("예약중"),
-    COMPLETE("판매완료");
+public enum SellingCommentStatus {
+    NOT_WON("낙찰되지 않음"),
+    WON("낙찰");
 
     private String krName;
-
 }
