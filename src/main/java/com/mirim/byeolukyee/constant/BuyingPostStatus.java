@@ -5,7 +5,7 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public enum BuyRequestStatus {
+public enum BuyingPostStatus {
     IN_PROGRESS("경매중"),
     COMPLETE("경매완료");
 

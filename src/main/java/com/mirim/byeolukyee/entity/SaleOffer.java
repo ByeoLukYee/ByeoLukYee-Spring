@@ -14,7 +14,7 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class SaleOffer extends Item {
     @JsonIgnore
-    @ManyToOne(targetEntity = BuyRequest.class, fetch = FetchType.LAZY)
+    @ManyToOne(targetEntity = BuyingPost.class, fetch = FetchType.LAZY)
     @JoinColumn(name = "reference_item_id")
     private Item referenceItem;
 

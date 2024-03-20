@@ -1,7 +1,7 @@
 package com.mirim.byeolukyee.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.mirim.byeolukyee.constant.BuyRequestStatus;
+import com.mirim.byeolukyee.constant.BuyingPostStatus;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
@@ -9,16 +9,16 @@ import lombok.experimental.SuperBuilder;
 import java.util.List;
 
 @Entity
-@DiscriminatorValue("BUY_REQUEST")
+@DiscriminatorValue("BUYING_POST")
 @Getter
 @SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class BuyRequest extends Item {
+public class BuyingPost extends Item {
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private BuyRequestStatus status = BuyRequestStatus.IN_PROGRESS;
+    private BuyingPostStatus status = BuyingPostStatus.IN_PROGRESS;
 
     @JsonIgnore
     @OneToMany(mappedBy = "referenceItem")
