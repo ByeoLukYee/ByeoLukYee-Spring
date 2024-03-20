@@ -18,7 +18,7 @@ public class BuyRequest extends Item {
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private BuyRequestStatus status;
+    private BuyRequestStatus status = BuyRequestStatus.IN_PROGRESS;
 
     @JsonIgnore
     @OneToMany(mappedBy = "referenceItem")
