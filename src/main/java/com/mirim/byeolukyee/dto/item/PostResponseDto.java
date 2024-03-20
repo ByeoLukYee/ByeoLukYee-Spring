@@ -7,7 +7,7 @@ import lombok.*;
 import java.time.LocalDateTime;
 
 @Getter
-public class ItemResponseDto extends ResponseDto {
+public class PostResponseDto extends ResponseDto {
     private final Long id;
     private final UserResponseDto user;
     private final String title;
@@ -16,7 +16,7 @@ public class ItemResponseDto extends ResponseDto {
     private final String location;
 
 
-    public ItemResponseDto(Boolean isDeleted, LocalDateTime createdAt, LocalDateTime updatedAt, Long id, UserResponseDto user, String title, String description, Integer price, String location) {
+    public PostResponseDto(Boolean isDeleted, LocalDateTime createdAt, LocalDateTime updatedAt, Long id, UserResponseDto user, String title, String description, Integer price, String location) {
         super(isDeleted, createdAt, updatedAt);
         this.id = id;
         this.user = user;

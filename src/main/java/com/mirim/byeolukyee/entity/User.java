@@ -30,5 +30,5 @@ public class User extends BaseEntity {
 
     @JsonIgnore
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    private List<Item> items;  // 아이템 리스트
+    private List<Post> items;  // 아이템 리스트
 }

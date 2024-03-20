@@ -14,7 +14,7 @@ import java.util.List;
 @SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class BuyingPost extends Item {
+public class BuyingPost extends Post {
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
@@ -22,5 +22,5 @@ public class BuyingPost extends Item {
 
     @JsonIgnore
     @OneToMany(mappedBy = "referenceItem")
-    private List<SaleOffer> referencingItems;
+    private List<SellingComment> referencingItems;
 }
