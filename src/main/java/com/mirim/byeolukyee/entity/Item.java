@@ -1,14 +1,14 @@
 package com.mirim.byeolukyee.entity;
 
-import com.mirim.byeolukyee.constant.ItemStatus;
 import jakarta.persistence.*;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 @Entity
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "type", discriminatorType = DiscriminatorType.STRING)
+@Inheritance(strategy = InheritanceType.JOINED)
+@DiscriminatorColumn(name = "dtype", discriminatorType = DiscriminatorType.STRING)
 @Getter
-@Builder
+@SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Item extends BaseEntity {
@@ -32,8 +32,4 @@ public class Item extends BaseEntity {
     @Builder.Default
     @Column(nullable = false)
     private String location = "거래 희망 장소가 없습니다.";
-
-    @Column(nullable = false)
-    @Enumerated(EnumType.STRING)
-    private ItemStatus status; // PROCEEDING, RESERVED, COMPLETE
 }
