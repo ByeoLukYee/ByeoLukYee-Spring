@@ -12,16 +12,14 @@ public class UserResponseDto extends ResponseDto {
     private final Long id;
     private final String name;
     private final String email;
-    private final String password;
     private final String studentId;
 
     @Builder
-    public UserResponseDto(Boolean isDeleted, LocalDateTime createdAt, LocalDateTime updatedAt, Long id, String name, String email, String password, String studentId) {
+    public UserResponseDto(Boolean isDeleted, LocalDateTime createdAt, LocalDateTime updatedAt, Long id, String name, String email,  String studentId) {
         super(isDeleted, createdAt, updatedAt);
         this.id = id;
         this.name = name;
         this.email = email;
-        this.password = password;
         this.studentId = studentId;
     }
 
@@ -33,7 +31,6 @@ public class UserResponseDto extends ResponseDto {
                 .id(user.getId())
                 .name(user.getName())
                 .email(user.getEmail())
-                .password(user.getPassword())
                 .studentId(user.getStudentId())
                 .build();
     }
