@@ -1,4 +1,4 @@
-package com.mirim.byeolukyee.dto.item;
+package com.mirim.byeolukyee.dto.post;
 
 import com.mirim.byeolukyee.dto.ResponseDto;
 import com.mirim.byeolukyee.dto.user.UserResponseDto;
