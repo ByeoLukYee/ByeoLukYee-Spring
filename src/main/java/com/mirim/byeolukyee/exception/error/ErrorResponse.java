@@ -10,9 +10,10 @@ import org.springframework.http.HttpStatus;
 @NoArgsConstructor
 public class ErrorResponse {
     private HttpStatus httpStatus;
+    private Integer statusCode;
     private String errorMessage;
 
     public static ErrorResponse of(ErrorCode errorCode) {
-        return new ErrorResponse(errorCode.getHttpStatus(), errorCode.getErrorMessage());
+        return new ErrorResponse(errorCode.getHttpStatus(), errorCode.getHttpStatus().value(), errorCode.getErrorMessage());
     }
 }
