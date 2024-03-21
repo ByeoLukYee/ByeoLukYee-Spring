@@ -18,6 +18,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @EntityListeners(AuditingEntityListener.class)
 public abstract class BaseEntity {
+    @Column(nullable = false)
     private Boolean isDeleted = false;
 
     @CreatedDate
