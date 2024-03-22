@@ -6,6 +6,7 @@ import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -16,11 +17,12 @@ import java.util.List;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class BuyingPost extends Post {
 
+    @Builder.Default
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private BuyingPostStatus status = BuyingPostStatus.IN_PROGRESS;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "referenceItem")
-    private List<SellingComment> referencingItems;
+    @OneToMany(mappedBy = "referenceItem", cascade = CascadeType.ALL)
+    private List<SellingComment> referencingItems = new ArrayList<>();
 }

@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -30,5 +31,5 @@ public class User extends BaseEntity {
 
     @JsonIgnore
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    private List<Post> items;  // 아이템 리스트
+    private List<Post> items = new ArrayList<>();  // 아이템 리스트
 }
