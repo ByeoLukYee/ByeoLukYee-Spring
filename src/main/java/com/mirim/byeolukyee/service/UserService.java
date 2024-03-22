@@ -37,7 +37,7 @@ public class UserService {
         return UserResponseDto.from(user);
     }
 
-    @Transactional(readOnly = false)
+    @Transactional
     public UserResponseDto createUser(AddUserRequestDto addUserRequestDto) {
         // 이메일 중복 체크
         checkDuplicateEmail(addUserRequestDto.getEmail());
