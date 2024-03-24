@@ -22,18 +22,18 @@ public class SellingPostResponseDto extends PostResponseDto {
         this.krStatus = status.getKrName();
     }
 
-    public static SellingPostResponseDto from(SellingPost product) {
+    public static SellingPostResponseDto from(SellingPost sellingPost) {
         return SellingPostResponseDto.builder()
-                .isDeleted(product.getIsDeleted())
-                .createdAt(product.getCreatedAt())
-                .updatedAt(product.getUpdatedAt())
-                .id(product.getId())
-                .user(UserResponseDto.from(product.getUser()))
-                .title(product.getTitle())
-                .description(product.getDescription())
-                .price(product.getPrice())
-                .location(product.getLocation())
-                .status(product.getStatus())
+                .isDeleted(sellingPost.getIsDeleted())
+                .createdAt(sellingPost.getCreatedAt())
+                .updatedAt(sellingPost.getUpdatedAt())
+                .id(sellingPost.getId())
+                .user(UserResponseDto.from(sellingPost.getUser()))
+                .title(sellingPost.getTitle())
+                .description(sellingPost.getDescription())
+                .price(sellingPost.getPrice())
+                .location(sellingPost.getLocation())
+                .status(sellingPost.getStatus())
                 .build();
     }
 

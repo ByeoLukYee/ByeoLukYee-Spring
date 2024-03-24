@@ -23,7 +23,6 @@ public class SellingPostService {
 
     private final SellingPostRepository sellingPostRepository;
     private final UserRepository userRepository;
-    private final BCryptPasswordEncoder encoder;
 
 
     public List<SellingPostResponseDto> findAllSellingPosts() {
@@ -38,7 +37,7 @@ public class SellingPostService {
         return SellingPostResponseDto.from(sellingPost);
     }
 
-    @Transactional(readOnly = false)
+    @Transactional
     public SellingPostResponseDto createSellingPost(AddSellingPostRequest addSellingPostRequest) {
 
         User user = userRepository.findById(addSellingPostRequest.getUserId())
