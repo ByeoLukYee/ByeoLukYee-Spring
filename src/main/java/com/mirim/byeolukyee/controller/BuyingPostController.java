@@ -4,6 +4,8 @@ import com.mirim.byeolukyee.dto.buyingpost.AddBuyingPostRequestDto;
 import com.mirim.byeolukyee.dto.buyingpost.BuyingPostResponseDto;
 import com.mirim.byeolukyee.service.BuyingPostService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,17 +18,20 @@ public class BuyingPostController {
     private final BuyingPostService buyingPostService;
 
     @GetMapping
-    public List<BuyingPostResponseDto> getAllBuyingPosts() {
-        return buyingPostService.findALlBuyingPosts();
+    public ResponseEntity<List<BuyingPostResponseDto>> getAllBuyingPosts() {
+        return ResponseEntity.status(HttpStatus.OK)
+                .body(buyingPostService.findALlBuyingPosts());
     }
 
     @GetMapping("/{id}")
-    public BuyingPostResponseDto getBuyingPostById(@PathVariable Long id) {
-        return buyingPostService.findBuyingPostById(id);
+    public ResponseEntity<BuyingPostResponseDto> getBuyingPostById(@PathVariable Long id) {
+        return ResponseEntity.status(HttpStatus.OK)
+                .body(buyingPostService.findBuyingPostById(id));
     }
 
     @PostMapping
-    public BuyingPostResponseDto createBuyingRequest(@RequestBody AddBuyingPostRequestDto addBuyingPostRequestDto) {
-        return buyingPostService.createBuyingPost(addBuyingPostRequestDto);
+    public ResponseEntity<BuyingPostResponseDto> createBuyingRequest(@RequestBody AddBuyingPostRequestDto addBuyingPostRequestDto) {
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body(buyingPostService.createBuyingPost(addBuyingPostRequestDto));
     }
 }
