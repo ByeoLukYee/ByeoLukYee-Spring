@@ -25,4 +25,10 @@ public class BuyingPost extends Post {
     @JsonIgnore
     @OneToMany(mappedBy = "referenceItem", cascade = CascadeType.ALL)
     private List<SellingComment> referencingItems = new ArrayList<>();
+
+    public void updatePost(String title, String description, Integer price, String location, BuyingPostStatus status) {
+        super.updatePost(title, description, price, location);
+        this.status = status;
+    }
+
 }
