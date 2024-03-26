@@ -20,8 +20,8 @@ public class SwaggerConfig {
 
     private Info apiInfo() {
         return new Info()
-                .title("API Title") // API의 제목
-                .description("This is my Swagger UI") // API에 대한 설명
+                .title("BLY API Docs") // API의 제목
+                .description("벼룩이 API 문서입니다.") // API에 대한 설명
                 .version("1.0.0"); // API의 버전
     }
 }
