@@ -32,4 +32,11 @@ public class Post extends BaseEntity {
     @Builder.Default
     @Column(nullable = false)
     private String location = "거래 희망 장소가 없습니다.";
+
+    public void updatePost(String title, String description, Integer price, String location) {
+        this.title = title;
+        this.description = description;
+        this.price = price;
+        this.location = location;
+    }
 }
