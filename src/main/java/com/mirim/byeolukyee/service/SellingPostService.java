@@ -2,6 +2,7 @@ package com.mirim.byeolukyee.service;
 
 import com.mirim.byeolukyee.dto.sellingpost.AddSellingPostRequest;
 import com.mirim.byeolukyee.dto.sellingpost.SellingPostResponseDto;
+import com.mirim.byeolukyee.dto.sellingpost.UpdateSellingPostRequest;
 import com.mirim.byeolukyee.entity.SellingPost;
 import com.mirim.byeolukyee.entity.User;
 import com.mirim.byeolukyee.exception.PostNotFoundException;
@@ -55,6 +56,23 @@ public class SellingPostService {
         SellingPost savedSellingPost = sellingPostRepository.save(sellingPost);
 
         return SellingPostResponseDto.from(savedSellingPost);
+    }
+
+    @Transactional
+    public SellingPostResponseDto updateSellingPost(Long id, UpdateSellingPostRequest updateSellingPostRequest) {
+        SellingPost sellingPost = sellingPostRepository.findById(id)
+                .orElseThrow(() -> PostNotFoundException.EXCEPTION);
+
+        sellingPost.updatePost(
+                updateSellingPostRequest.getTitle(),
+                updateSellingPostRequest.getDescription(),
+                updateSellingPostRequest.getPrice(),
+                updateSellingPostRequest.getLocation()
+        );
+
+        SellingPost updatedSellingpost = sellingPostRepository.save(sellingPost);
+
+        return SellingPostResponseDto.from(updatedSellingpost);
     }
 
 
