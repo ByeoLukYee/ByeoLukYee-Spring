@@ -67,7 +67,8 @@ public class SellingPostService {
                 updateSellingPostRequest.getTitle(),
                 updateSellingPostRequest.getDescription(),
                 updateSellingPostRequest.getPrice(),
-                updateSellingPostRequest.getLocation()
+                updateSellingPostRequest.getLocation(),
+                updateSellingPostRequest.getStatus()
         );
 
         SellingPost updatedSellingpost = sellingPostRepository.save(sellingPost);

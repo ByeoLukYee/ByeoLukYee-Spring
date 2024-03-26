@@ -17,4 +17,9 @@ public class SellingPost extends Post {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private SellingPostStatus status = SellingPostStatus.IN_PROGRESS;
+
+    public void updatePost(String title, String description, Integer price, String location, SellingPostStatus status) {
+        super.updatePost(title, description, price, location);
+        this.status = status;
+    }
 }
