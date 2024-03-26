@@ -2,6 +2,7 @@ package com.mirim.byeolukyee.controller;
 
 import com.mirim.byeolukyee.dto.sellingpost.AddSellingPostRequest;
 import com.mirim.byeolukyee.dto.sellingpost.SellingPostResponseDto;
+import com.mirim.byeolukyee.dto.sellingpost.UpdateSellingPostRequest;
 import com.mirim.byeolukyee.service.SellingPostService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -9,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+
 @RestController
 @RequestMapping("/selling-posts")
 @RequiredArgsConstructor
@@ -32,5 +34,14 @@ public class SellingPostController {
     public ResponseEntity<SellingPostResponseDto> createSellingPost(@RequestBody AddSellingPostRequest addSellingPostRequest) {
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(sellingPostService.createSellingPost(addSellingPostRequest));
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<SellingPostResponseDto> updateSellingPost(
+            @PathVariable Long id,
+            @RequestBody UpdateSellingPostRequest updateSellingPostRequest
+    ) {
+        return ResponseEntity.status(HttpStatus.OK)
+                .body(sellingPostService.updateSellingPost(id, updateSellingPostRequest));
     }
 }
