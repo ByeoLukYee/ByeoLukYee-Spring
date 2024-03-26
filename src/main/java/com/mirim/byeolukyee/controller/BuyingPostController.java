@@ -2,6 +2,7 @@ package com.mirim.byeolukyee.controller;
 
 import com.mirim.byeolukyee.dto.buyingpost.AddBuyingPostRequestDto;
 import com.mirim.byeolukyee.dto.buyingpost.BuyingPostResponseDto;
+import com.mirim.byeolukyee.dto.buyingpost.UpdateBuyingPostRequestDto;
 import com.mirim.byeolukyee.service.BuyingPostService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -33,5 +34,14 @@ public class BuyingPostController {
     public ResponseEntity<BuyingPostResponseDto> createBuyingRequest(@RequestBody AddBuyingPostRequestDto addBuyingPostRequestDto) {
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(buyingPostService.createBuyingPost(addBuyingPostRequestDto));
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<BuyingPostResponseDto> updateBuyingRequeest(
+            @PathVariable Long id,
+            @RequestBody UpdateBuyingPostRequestDto updateBuyingPostRequestDto
+    ) {
+        return ResponseEntity.status(HttpStatus.OK)
+                .body(buyingPostService.updateBuyingPost(id, updateBuyingPostRequestDto));
     }
 }
